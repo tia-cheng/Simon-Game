@@ -73,5 +73,22 @@ function checkAnswer(currentLevel){
         }
     }else{
         console.log("wrong");
+        playSound("wrong");
+
+        //apply "game-over"class to the body
+        $("body").addClass("game-over");
+        setTimeout(function(){
+            $("body").removeClass("game-over");
+        }, 200);
+
+        $("h1").text("Game OVer. Press Any Key to Restart!");
+
+
     }
+}
+
+function startOver(){
+    level = 0;
+    gamePattern = [];
+    started = false;
 }
