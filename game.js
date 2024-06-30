@@ -24,14 +24,17 @@ function playSound(name){
 /** get the next random color
  * add this color into gamepattern
  * fadein fadeout effect, sound for this random color
+ * userClickPattern has to reset everytime
  */
 function nextSequence(){
+    userClickedPattern = [];
     level++;
-    $("h1").text("Level" + level);
+    $("#level-title").text("Level " + level);
     var randomNumber = Math.floor(Math.random() * 4);
     var randomChosenColour = buttonColours[randomNumber];
-    $("#" + randomChosenColour).fadeOut(100).fadeIn(100).fadeOut(100);
     gamePattern.push(randomChosenColour);
+
+    $("#" + randomChosenColour).fadeIn(100).fadeOut(100).fadeIn(100);
     playSound(randomChosenColour);
     
 }
@@ -56,7 +59,7 @@ $(".btn").click(function(){
 //detect a keyboard key has been pressed
 $(document).keypress(function(){
     if(!started){
-        $("#level-title").text("Level" + level);
+        $("#level-title").text("Level " + level);
         nextSequence();
         started = true;
     }
@@ -65,23 +68,22 @@ $(document).keypress(function(){
 //check if the user is correct
 function checkAnswer(currentLevel){
     if(gamePattern[currentLevel] === userClickedPattern[currentLevel]){
-        console.log("success");
         if(gamePattern.length === userClickedPattern.length){
             setTimeout(function(){
                 nextSequence();
             }, 1000);
         }
     }else{
-        console.log("wrong");
         playSound("wrong");
 
         //apply "game-over"class to the body
         $("body").addClass("game-over");
+        $("#level-title").text("Game OVer. Press Any Key to Restart");
         setTimeout(function(){
             $("body").removeClass("game-over");
         }, 200);
 
-        $("h1").text("Game OVer. Press Any Key to Restart!");
+        startOver();
 
 
     }
