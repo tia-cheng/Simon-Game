@@ -1,0 +1,5 @@
+.DS_Store
+
+#this is to ingore secret files like passkey
+#ignore all the txt files
+#*.txt
