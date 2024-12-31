@@ -10,33 +10,36 @@
 
 <body>
   <h1 id="level-title">Press A Key to Start</h1>
-  <div class="container">
-    <div class="row">
+  <h2 id="score">Score: 0</h2>
 
-      <div type="button" id="green" class="btn green">
-
-      </div>
-
-      <div type="button" id="red" class="btn red">
-
-      </div>
-    </div>
-
-    <div class="row">
-
-      <div type="button" id="yellow" class="btn yellow">
-
-      </div>
-      <div type="button" id="blue" class="btn blue">
-
-      </div>
-
-    </div>
-
+  <div id="difficulty">
+    <button id="easy" class="difficulty-btn">Easy</button>
+    <button id="medium" class="difficulty-btn">Medium</button>
+    <button id="hard" class="difficulty-btn">Hard</button>
   </div>
 
-<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-<script src="game.js"></script>
+  <div class="container">
+    <div class="row">
+      <div type="button" id="green" class="btn green"></div>
+      <div type="button" id="red" class="btn red"></div>
+    </div>
+    <div class="row">
+      <div type="button" id="yellow" class="btn yellow"></div>
+      <div type="button" id="blue" class="btn blue"></div>
+    </div>
+  </div>
+
+  <div id="hints">
+    <button id="hint-button">Hint</button>
+    <p id="hint-count">Hints Left: 3</p>
+  </div>
+
+  <div id="theme-toggle">
+    <button id="theme-button">Switch to Light Mode</button>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  <script src="game.js"></script>
 </body>
 
 </html>

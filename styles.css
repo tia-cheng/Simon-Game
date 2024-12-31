@@ -1,53 +1,114 @@
+/* General Body Styling */
 body {
   text-align: center;
-  background-color: #011F3F;
-}
-
-#level-title {
+  background: linear-gradient(135deg, #011F3F, #1A3B5D);
   font-family: 'Press Start 2P', cursive;
-  font-size: 3rem;
-  margin:  5%;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Level Title */
+#level-title {
+  font-size: 2.5rem;
+  margin: 20px;
   color: #FEF2BF;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
+/* Container */
 .container {
-  display: block;
-  width: 50%;
-  margin: auto;
-
+  display: grid;
+  grid-template-columns: repeat(2, 150px);
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  margin: 0 auto;
 }
 
+/* Buttons */
 .btn {
-  margin: 25px;
-  display: inline-block;
-  height: 200px;
-  width: 200px;
-  border: 10px solid black;
-  border-radius: 20%;
-}
-
-.game-over {
-  background-color: red;
-  opacity: 0.8;
+  width: 150px;
+  height: 150px;
+  border: 5px solid rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  transition: all 0.2s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
 
 .red {
-  background-color: red;
+  background: linear-gradient(to bottom right, #ff4e50, #ff0000);
 }
 
 .green {
-  background-color: green;
+  background: linear-gradient(to bottom right, #4caf50, #008000);
 }
 
 .blue {
-  background-color: blue;
+  background: linear-gradient(to bottom right, #2196f3, #0015ff);
 }
 
 .yellow {
-  background-color: yellow;
+  background: linear-gradient(to bottom right, #ffeb3b, #ffcc00);
+}
+
+.btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
 
 .pressed {
-  box-shadow: 0 0 20px white;
-  background-color: grey;
+  transform: scale(0.95);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  background-color: #bdbdbd !important;
+}
+
+/* Game Over Effect */
+.game-over {
+  background: linear-gradient(to bottom, #ff4e50, #ff0000);
+  color: #ffffff;
+  animation: flash 0.5s ease infinite;
+}
+
+@keyframes flash {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Media Queries */
+@media (max-width: 600px) {
+  #level-title {
+    font-size: 2rem;
+  }
+
+  .container {
+    grid-template-columns: repeat(2, 120px);
+    gap: 10px;
+  }
+
+  .btn {
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .btn {
+    width: 200px;
+    height: 200px;
+  }
+
+  #level-title {
+    font-size: 3.5rem;
+  }
 }
