@@ -1,114 +1,163 @@
-/* General Body Styling */
+/* General Styles */
 body {
   text-align: center;
-  background: linear-gradient(135deg, #011F3F, #1A3B5D);
-  font-family: 'Press Start 2P', cursive;
+  background-color: #1a1a1a;
   margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  font-family: 'Press Start 2P', cursive;
+  color: #ffffff;
 }
 
-/* Level Title */
 #level-title {
-  font-size: 2.5rem;
-  margin: 20px;
-  color: #FEF2BF;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  font-size: 3rem;
+  margin: 5%;
+  color: #ffffff;
 }
 
-/* Container */
+#score {
+  font-size: 2rem;
+  color: #b3b3b3;
+}
+
 .container {
   display: grid;
-  grid-template-columns: repeat(2, 150px);
-  gap: 15px;
-  justify-content: center;
-  align-items: center;
-  width: auto;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 60%;
   margin: 0 auto;
 }
 
-/* Buttons */
+/* Button Styles */
 .btn {
-  width: 150px;
-  height: 150px;
-  border: 5px solid rgba(0, 0, 0, 0.1);
+  height: 180px;
+  width: 180px;
+  border: none;
   border-radius: 15px;
-  transition: all 0.2s ease;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
   cursor: pointer;
 }
 
+.btn:hover {
+  transform: scale(1.05);
+}
+
 .red {
-  background: linear-gradient(to bottom right, #ff4e50, #ff0000);
+  background-color: #ff4c4c;
+  box-shadow: 0px 4px 10px rgba(255, 76, 76, 0.8);
+}
+
+.red:hover {
+  box-shadow: 0px 8px 15px rgba(255, 76, 76, 0.9);
 }
 
 .green {
-  background: linear-gradient(to bottom right, #4caf50, #008000);
+  background-color: #4cff4c;
+  box-shadow: 0px 4px 10px rgba(76, 255, 76, 0.8);
+}
+
+.green:hover {
+  box-shadow: 0px 8px 15px rgba(76, 255, 76, 0.9);
 }
 
 .blue {
-  background: linear-gradient(to bottom right, #2196f3, #0015ff);
+  background-color: #4c4cff;
+  box-shadow: 0px 4px 10px rgba(76, 76, 255, 0.8);
+}
+
+.blue:hover {
+  box-shadow: 0px 8px 15px rgba(76, 76, 255, 0.9);
 }
 
 .yellow {
-  background: linear-gradient(to bottom right, #ffeb3b, #ffcc00);
+  background-color: #ffeb3b;
+  box-shadow: 0px 4px 10px rgba(255, 235, 59, 0.8);
 }
 
-.btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+.yellow:hover {
+  box-shadow: 0px 8px 15px rgba(255, 235, 59, 0.9);
 }
 
 .pressed {
   transform: scale(0.95);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
-  background-color: #bdbdbd !important;
+  background-color: #b3b3b3;
 }
 
-/* Game Over Effect */
-.game-over {
-  background: linear-gradient(to bottom, #ff4e50, #ff0000);
+/* Utility Button Styles */
+#difficulty {
+  margin: 20px;
+}
+
+.difficulty-btn,
+#hint-button,
+#theme-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #333333;
   color: #ffffff;
-  animation: flash 0.5s ease infinite;
+  transition: background-color 0.2s, transform 0.2s;
+  cursor: pointer;
 }
 
-@keyframes flash {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
+.difficulty-btn:hover,
+#hint-button:hover,
+#theme-button:hover {
+  background-color: #4d4d4d;
+  transform: scale(1.05);
 }
 
-/* Media Queries */
-@media (max-width: 600px) {
-  #level-title {
-    font-size: 2rem;
-  }
-
-  .container {
-    grid-template-columns: repeat(2, 120px);
-    gap: 10px;
-  }
-
-  .btn {
-    width: 120px;
-    height: 120px;
-    border-radius: 10px;
-  }
+/* Hints Section */
+#hints {
+  margin: 20px;
 }
 
-@media (min-width: 1200px) {
-  .btn {
-    width: 200px;
-    height: 200px;
-  }
+#hint-count {
+  font-size: 1rem;
+  color: #b3b3b3;
+  margin-top: 10px;
+}
 
-  #level-title {
-    font-size: 3.5rem;
-  }
+/* Light Mode Styles */
+body.light-mode {
+  background-color: #f9f9f9;
+  color: #333333;
+}
+
+body.light-mode #level-title,
+body.light-mode #score,
+body.light-mode #hint-count {
+  color: #333333;
+}
+
+body.light-mode .btn {
+  box-shadow: none;
+}
+
+body.light-mode .red {
+  background-color: #ff6666;
+}
+
+body.light-mode .green {
+  background-color: #66ff66;
+}
+
+body.light-mode .blue {
+  background-color: #6666ff;
+}
+
+body.light-mode .yellow {
+  background-color: #ffff66;
+}
+
+body.light-mode .difficulty-btn,
+body.light-mode #hint-button,
+body.light-mode #theme-button {
+  background-color: #e0e0e0;
+  color: #333333;
+}
+
+body.light-mode .difficulty-btn:hover,
+body.light-mode #hint-button:hover,
+body.light-mode #theme-button:hover {
+  background-color: #cccccc;
 }
